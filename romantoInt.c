@@ -1,3 +1,5 @@
+
+
 int romanToInt(char* s) {
     
     int i;
@@ -8,13 +10,13 @@ int romanToInt(char* s) {
         
         if(*(s+i) == 'I')
             if(*(s+i+1) == 'X' || *(s+i+1) == 'V' )
-                           sum = sum -1;
+                           *(s+i) = 'O';
         if(*(s+i) == 'X')
             if(*(s+i+1) == 'L' || *(s+i+1) == 'C' )
-                           sum = sum -10;  
+                           *(s+i) = 'P';  
         if(*(s+i) == 'C')
             if(*(s+i+1) == 'D' || *(s+i+1) == 'M' )
-                           sum = sum -100;
+                           *(s+i) = 'Q';
         switch(*(s+i))
         {
             case 'I':
@@ -37,6 +39,16 @@ int romanToInt(char* s) {
              break;
            case 'M':
              sum = sum + 1000;
+             break;
+                
+            case 'O':
+             sum = sum -1;
+             break;
+           case 'P':
+             sum = sum -10;
+             break;
+           case 'Q':
+             sum = sum -100;
              break;
         }
     }
